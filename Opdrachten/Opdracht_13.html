@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Opdracht 13</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        "use strict"
+        $.ajax({
+            type:"GET",
+            url: "http://maps.googleapis.com/maps/api/geocode/json?address=Dilbeek,Belgie",
+            dataType: 'json',
+        })
+        .done(function (response){
+            var i, adres = response.results[0];
+            $("#plaats").text(adres.formatted_address);
+            $("#lat").text(adres.geometry.location.lat);
+            $("#lng").text(adres.geometry.location.lng);
+            $("#province").text(adres.address_components[1].long_name);
+
+        }).fail(function(response,textStatus,xhr){
+            alert("Werkt niet")
+        })
+
+    </script>
+</head>
+
+<body>
+		<div>
+			<header>
+				<h1>jQuery - locatie laden</h1>
+			</header>
+			<section>
+				<article>
+					<table id="adres">
+						<thead>
+							<tr>
+								<th>Plaats</th>
+								<th>Latitude</th>
+                                <th>Longitude</th>
+                                <th>Province</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td id="plaats"></td>
+								<td id="lat"></td>
+                                <td id="lng"></td>
+                                <td id="province"></td>
+							</tr>
+						</tbody>
+					</table>
+				</article>
+			</section>
+
+		</div>
+	</body>
+
+
+</html>

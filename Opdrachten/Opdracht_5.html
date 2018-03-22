@@ -2,50 +2,52 @@
 <html lang="nl-BE">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Opdracht 5</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Opdracht 5</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     td.black {
       height: 50px;
       width: 50px;
       background-color: black;
-      border-width:5px;
+      border-width: 5px;
       border-style: solid;
       border-color: dodgerblue;
-      display:inline-block;
+      display: inline-block;
     }
+
     td.white {
       height: 50px;
       width: 50px;
-      background-color:white;
-      border-width:5px;
+      background-color: white;
+      border-width: 5px;
       border-style: solid;
       border-color: dodgerblue;
-      display:inline-block;
-      
+      display: inline-block;
+
     }
   </style>
 </head>
 
 <body>
+  <h1>hello</h1>
 
   <table cellspacing=0 cellpadding=0>
     <script type="text/javascript">
-    "use strict";
-    for(i = 0; i< 121; i++){
-   if(i % 2 == 0){
-     document.write("<td><img src=purple.jpg width=50 height=50></td>");
-   }
-   else{
-     document.write("<td><img src=white.jpg width=50 height=50></td>");
-   }
-   if( (i+1) % 11 == 0){
-     document.write("<tr>");
-   }
- }
+      "use strict";
+      for (i = 0; i < 121; i++) {
+        if (i % 2 == 0) {
+          document.write("<td><img src=purple.jpg width=50 height=50></td>");
+        }
+        else {
+          document.write("<td><img src=white.jpg width=500 height=50></td>");
+        }
+        if ((i + 1) % 11 == 0) {
+          document.write("<tr>");
+        }
+      }
     </script>
-  </div>
+    </div>
 
 </body>
 
