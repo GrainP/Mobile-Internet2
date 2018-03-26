@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Opdracht 15</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        #dil {
+            width: 50em;
+            height: 50em;
+            background-color: aquamarine;
+        }
+    </style>
+    <script>
+        "use strict"
+        $("button").onClick(function(){
+            var e = ("#artiest").text
+        $.ajax({
+            type:"GET",
+            url: "http://www.songsterr.com/a/ra/songs/byartists.xml?artists="+"",
+            dataType: 'xml',
+            success: function(xml){
+                $(xml).find('Song').each(function(){
+      var sTitle = $(this).find('title').text();
+      $("<li></li>").html(sTitle).appendTo("#dvContent");
+    });
+  },
+
+        error: function() {
+            alert("An error occurred while processing XML file.");
+        }
+        });
+        });
+    </script>
+</head>
+
+<body>
+		<div>
+			<header>
+				<h1>Zoek Artiest</h1>
+            </header>
+            <input id="artiest" type="text" placeholder="Artiest">
+            <button>Zoek</button>
+        </div>
+        
+        <ul id="dvContent">
+
+        </ul>
+	</body>
+
+
+</html>
