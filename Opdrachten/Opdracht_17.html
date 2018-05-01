@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Opdracht 17</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<script src="js/jquery-3.3.1.min.js"></script>
+        <!-- IDB door IDB kunnen we met promises met Indexed DB werken -->
+        <script src="js/idb.js"></script>
+        <!-- Voorbeeld 1 : js/les7-1.js
+            Zorg er voor dat er altijd slechts 1 van deze js bestanden niet in commentaar staat (of pas gewoon het cijfer aan)
+        -->
+        
+		<script>
+            "use strict";
+
+			$(function () {
+				$("#btnBewaar").on("click", bewaar);
+                // Haal eventueel al eerder bewaarde producten op
+                haalOp();
+			});
+
+			
+		</script>
+	</head>
+
+	<body>
+		<div>
+			<header>
+				<h1>jQuery &amp; IndexedDB VB</h1>
+			</header>
+			<section>
+                
+                <label for="naam">naam : <input type="text" id="naam" placeholder="Naam">
+                </label> <br>
+                <label for="prijs">Prijs : <input type="number" id="prijs" placeholder="Prijs in euro">
+                </label><br>
+                
+                <button id="btnBewaar">Bewaar</button>
+                
+                <table id="producten">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Prijs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div id="alert" style="color:red"></div>
+				
+                
+			</section>
+
+		</div>
+	</body>
+</html>

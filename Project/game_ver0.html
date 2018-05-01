@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        'use strict';
+        window.onload = function () {
+            Environment();
+        };
+
+        function Environment() {
+            var canvas = document.getElementById('myCanvas');
+            var context = canvas.getContext("2d");
+            context.rect(0, 400, canvas.width, canvas.height);
+            context.fillStyle = 'green';
+            context.strokeStyle = 'green';
+            context.fill();
+            context.stroke();
+        }
+
+        function fire() {
+            var angle = document.getElementById('angle');
+            var velocityTextBox = document.getElementById('height');
+            var canvas = document.getElementById('myCanvas');
+            var firebutton = document.getElementById('fireButton')
+
+            var velocity = velocityTextBox.value; //Velocity of the object
+            var t = 0; //time
+            var theta = (angle.value) * (.017453); //Angle * Pi/180
+            var interval = 90; //Interval between frames
+            var startY = 400; //Starting Y position
+            var context = canvas.getContext("2d");
+            var xn = 50;    //x position.  We are starting 50 pixels into the canvas.
+            var yn = 0;     //y position over time
+            var xVelocity = (velocity * 1 * Math.cos(theta));   //Velocity of our object along the x axis.
+
+            context.fillStyle = 'red'; //make the projectile red
+
+            //fireButton.disabled = true; //disable the fire button
+
+            var refreshIntervalId = setInterval(function () { animateBox(context) }, interval); //start the animation
+
+            function animateBox(context) {
+
+                t = t + 1;                  //increment time
+                velocity = velocity - .25;   //Slow down out velocity this helps with the curve
+                yn = startY - (velocity * t * Math.sin(theta));  //Velocity of Y
+                yn = yn + (t + (.5 * 9.8 * t)); //Add gravity to Y
+                xn = (xn + xVelocity);//Constant velocity over time
+
+                if (yn > startY) { //See if we are below ground level
+                    clearInterval(refreshIntervalId);  //Stop the animation
+                    //fireButton.disabled = false; //Enable the fire button
+                    return; //Return control
+                }
+
+                context.fillRect(xn, yn, 2, 2);  //draw the projectile
+
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+
+</html>
