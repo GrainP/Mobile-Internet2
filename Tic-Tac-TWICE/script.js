@@ -231,13 +231,11 @@ $(document).ready(function () {
 		function CPUTurnPlay(square) {
 
 			validatePlay(square)
-
 			if (canPlay) {
 				square.removeClass('open');
 				square.addClass('occupied');
 				square.html("O");
 				square.addClass('CPU');
-
 			} else {
 				CPURandom()
 			}
